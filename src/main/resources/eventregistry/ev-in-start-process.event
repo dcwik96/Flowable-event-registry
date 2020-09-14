@@ -1,0 +1,11 @@
+{
+    "key": "startProcessEventKey",
+    "name": "Start process event",
+    "correlationParameters": [],
+    "payload": [
+        {
+            "name": "id",
+            "type": "string"
+        }
+    ]
+}

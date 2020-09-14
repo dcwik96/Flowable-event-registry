@@ -14,11 +14,17 @@ repositories {
 }
 
 dependencies {
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-amqp', version: '2.3.2.RELEASE'
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+
+	compile group: 'org.flowable', name: 'flowable-spring-boot-starter-process', version: '6.5.0'
+	runtimeOnly "com.h2database:h2"
+	compile group: 'org.flowable', name: 'flowable-jms-spring-executor', version: '6.5.0'
 }
 
 test {

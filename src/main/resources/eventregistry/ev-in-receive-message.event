@@ -1,0 +1,16 @@
+{
+    "key": "receiveMessageEventKey",
+    "name": "Receive message event key",
+    "correlationParameters": [
+        {
+            "name": "id",
+            "type": "string"
+        }
+    ],
+    "payload": [
+        {
+            "name": "id",
+            "type": "string"
+        }
+    ]
+}

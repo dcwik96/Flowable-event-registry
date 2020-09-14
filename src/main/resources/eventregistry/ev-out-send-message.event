@@ -1,0 +1,19 @@
+{
+    "key": "sendMessageEventKey",
+    "name": "Send message event key",
+    "outboundChannelKeys": [
+        "sendMessageOutboundChannel"
+    ],
+    "correlationParameters": [
+      {
+                "name": "id",
+                "type": "string"
+            }
+    ],
+    "payload": [
+        {
+            "name": "id",
+            "type": "string"
+        }
+    ]
+}

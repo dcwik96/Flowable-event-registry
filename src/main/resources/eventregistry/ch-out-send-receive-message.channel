@@ -1,0 +1,8 @@
+{
+  "key": "sendMessageOutboundChannel",
+  "name": "Send message",
+  "channelType": "outbound",
+  "type": "rabbit",
+  "serializerType": "json",
+  "routingKey": "send-message"
+}

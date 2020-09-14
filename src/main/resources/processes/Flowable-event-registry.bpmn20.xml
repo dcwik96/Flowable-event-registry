@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="flowable-event-registry" name="Flowable-event-registry" isExecutable="true">
+    <documentation>Process for flowable event registry demo</documentation>
+    <sequenceFlow id="sid-FA1ECA1A-C2AB-452B-BF50-42E1FED4312D" sourceRef="sid-C965DB35-73A7-4412-8027-08A776F7FAB0" targetRef="sid-BF7EEC33-890B-4C7D-A92B-E422BE405258"></sequenceFlow>
+    <endEvent id="sid-09F9698D-4525-4C49-9997-F58FC426E02F"></endEvent>
+    <sequenceFlow id="sid-9EBDB759-42A6-4E71-A3A9-AB965667FD4B" sourceRef="sid-BF7EEC33-890B-4C7D-A92B-E422BE405258" targetRef="sid-09F9698D-4525-4C49-9997-F58FC426E02F"></sequenceFlow>
+    <serviceTask id="sid-BF7EEC33-890B-4C7D-A92B-E422BE405258" name="Send and receive message" flowable:type="send-event" flowable:triggerable="true">
+      <extensionElements>
+        <flowable:eventType><![CDATA[sendMessageEventKey]]></flowable:eventType>
+        <flowable:triggerEventType><![CDATA[receiveMessageEventKey]]></flowable:triggerEventType>
+        <flowable:eventInParameter sourceExpression="${id}" target="id" targetType="string"></flowable:eventInParameter>
+        <flowable:eventOutParameter source="id" sourceType="string" target="id"></flowable:eventOutParameter>
+        <flowable:triggerEventCorrelationParameter xmlns:flowable="http://flowable.org/bpmn" name="id" type="string" value="${id}"></flowable:triggerEventCorrelationParameter>
+      </extensionElements>
+    </serviceTask>
+    <startEvent id="sid-C965DB35-73A7-4412-8027-08A776F7FAB0">
+      <extensionElements>
+        <flowable:eventType xmlns:flowable="http://flowable.org/bpmn"><![CDATA[startProcessEventKey]]></flowable:eventType>
+        <flowable:eventOutParameter xmlns:flowable="http://flowable.org/bpmn" source="id" sourceType="string" target="id"></flowable:eventOutParameter>
+        <flowable:channelType xmlns:flowable="http://flowable.org/bpmn"><![CDATA[rabbitmq]]></flowable:channelType>
+      </extensionElements>
+    </startEvent>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_flowable-event-registry">
+    <bpmndi:BPMNPlane bpmnElement="flowable-event-registry" id="BPMNPlane_flowable-event-registry">
+      <bpmndi:BPMNShape bpmnElement="sid-09F9698D-4525-4C49-9997-F58FC426E02F" id="BPMNShape_sid-09F9698D-4525-4C49-9997-F58FC426E02F">
+        <omgdc:Bounds height="28.0" width="28.0" x="315.0" y="151.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-BF7EEC33-890B-4C7D-A92B-E422BE405258" id="BPMNShape_sid-BF7EEC33-890B-4C7D-A92B-E422BE405258">
+        <omgdc:Bounds height="80.0" width="100.0" x="165.0" y="125.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-C965DB35-73A7-4412-8027-08A776F7FAB0" id="BPMNShape_sid-C965DB35-73A7-4412-8027-08A776F7FAB0">
+        <omgdc:Bounds height="30.0" width="30.5" x="90.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-FA1ECA1A-C2AB-452B-BF50-42E1FED4312D" id="BPMNEdge_sid-FA1ECA1A-C2AB-452B-BF50-42E1FED4312D">
+        <omgdi:waypoint x="120.44999840569433" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="165.0" y="165.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-9EBDB759-42A6-4E71-A3A9-AB965667FD4B" id="BPMNEdge_sid-9EBDB759-42A6-4E71-A3A9-AB965667FD4B">
+        <omgdi:waypoint x="264.95000000000005" y="165.0"></omgdi:waypoint>
+        <omgdi:waypoint x="315.0" y="165.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

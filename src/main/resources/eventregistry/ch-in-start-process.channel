@@ -1,0 +1,12 @@
+{
+      "type": "rabbit",
+      "channelType": "inbound",
+      "deserializerType": "json",
+      "description": "Start process channel",
+      "queues": ["start-process"],
+      "channelEventKeyDetection": {
+        "fixedValue": "startProcessEventKey"
+      },
+      "name": "Start process",
+      "key": "startProcessInboundChannel"
+}
